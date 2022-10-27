@@ -10,7 +10,7 @@ const controllers = require('./app/controllers/building.controller');
 
 const app = express();
 var corsOptions = {
-  origin: "https://construction-map.netlify.app/"
+  origin: "http://127.0.0.1:5173"
 };
 app.use(cors(corsOptions));
 
