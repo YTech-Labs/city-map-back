@@ -8,6 +8,8 @@ const db = require("./app/models/index.js");
 
 const morgan = require("morgan");
 
+require("dotenv").config();
+
 const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
@@ -17,7 +19,7 @@ const userRoutes = require('./app/routes/user.routes');
 
 const app = express();
 var corsOptions = {
-  origin: "http://127.0.0.1:5174"
+  origin: process.env.front_end_url
 };
 app.use(cors(corsOptions));
 
