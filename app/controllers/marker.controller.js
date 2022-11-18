@@ -1,15 +1,15 @@
 const db = require('../models');
 
-// Create and Save a new object
-exports.addOneObject = (req, res) => {
-    const object = new db.objects(req.body);
+// Create and Save a new marker
+exports.addOneMarker = (req, res) => {
+    const marker = new db.markers(req.body);
     try {
-        object.save()
+        marker.save()
         .then(result => {
             if (result.length != 0) {
                 res.status(200).send(result);
             } else {
-                res.status(400).send('❎ Could not add the object');
+                res.status(400).send('❎ Could not add the marker');
             }
         });
     } catch (err) {
@@ -17,14 +17,14 @@ exports.addOneObject = (req, res) => {
     }
 };
 
-// Retrieve all objects from the database
-exports.findAllObjects = (req, res) => {
+// Retrieve all markers from the database
+exports.findAllMarkers = (req, res) => {
     try {
-        db.objects.find().then(result => {
+        db.markers.find().then(result => {
             if (result.length != 0) {
                 res.status(200).send(result);
             } else {
-                res.status(400).send('❎ No objects to show');
+                res.status(400).send('❎ No markers to show');
             }
         });
     } catch (err) {
@@ -32,14 +32,14 @@ exports.findAllObjects = (req, res) => {
     }
 };
 
-// Find a single object with an id
-exports.findOneObject = (req, res) => {
+// Find a single marker with an id
+exports.findOneMarker = (req, res) => {
     try {
-        db.objects.findById(req.params.id).then(result => {
+        db.markers.findById(req.params.id).then(result => {
             if (result.length != 0) {
                 res.status(200).send(result);
             } else {
-                res.status(400).send('❎ Could not find the object');
+                res.status(400).send('❎ Could not find the marker');
             }
         });
     } catch (err) {
@@ -47,14 +47,14 @@ exports.findOneObject = (req, res) => {
     }
 };
 
-// Update a object by the id in the request
-exports.updateOneObject = (req, res) => {
+// Update a marker by the id in the request
+exports.updateOneMarker = (req, res) => {
     try {
-        db.objects.findByIdAndUpdate(req.params.id, req.body).then(result => {
+        db.markers.findByIdAndUpdate(req.params.id, req.body).then(result => {
             if (result.length != 0) {
                 res.status(200).send(result);
             } else {
-                res.status(400).send('❎ Could not update the object');
+                res.status(400).send('❎ Could not update the marker');
             }
         });
     } catch (err) {
@@ -62,14 +62,14 @@ exports.updateOneObject = (req, res) => {
     }
 };
 
-// Delete a object with the specified id in the request
-exports.deleteOneObject = (req, res) => {
+// Delete a marker with the specified id in the request
+exports.deleteOneMarker = (req, res) => {
     try {
-        db.objects.findByIdAndDelete(req.params.id).then(result => {
+        db.markers.findByIdAndDelete(req.params.id).then(result => {
             if (result.length != 0) {
                 res.status(200).send(result);
             } else {
-                res.status(400).send('❎ Could not delete the object');
+                res.status(400).send('❎ Could not delete the marker');
             }
         });
     } catch (err) {
@@ -77,16 +77,16 @@ exports.deleteOneObject = (req, res) => {
     }
 };
 
-// Delete all objects from the database
-exports.deleteAllObjects = (req, res) => {
+// Delete all markers from the database
+exports.deleteAllMarkers = (req, res) => {
     try {
-        db.objects.deleteMany().then(result => {
+        db.markers.deleteMany().then(result => {
             if (result.length != 0) {
                 if (result.acknowledged === true) {
                     res.status(200).send(result);
                 }
             } else {
-                res.status(400).send('❎ Could not delete the object');
+                res.status(400).send('❎ Could not delete the marker');
             }
         });
     } catch (err) {

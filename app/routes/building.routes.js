@@ -22,8 +22,8 @@ router.post("/delete-building/:id", (req, res) => {
   controllers.deleteOneBuilding(req, res);
 });
 
-router.post("/delete-all-buildings", (req, res) => {
-  controllers.deleteAllBuildings(req, res);
-});
+// router.post("/delete-all-buildings", (req, res) => {
+//   controllers.deleteAllBuildings(req, res);
+// });
 
 module.exports = router; 

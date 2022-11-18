@@ -14,7 +14,7 @@ const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
 const buildingRoutes = require('./app/routes/building.routes');
-const objectRoutes = require('./app/routes/object.routes');
+const markerRoutes = require('./app/routes/marker.routes');
 const userRoutes = require('./app/routes/user.routes');
 
 const app = express();
@@ -45,7 +45,7 @@ app.get("/", (req, res) => {
 
 // integrating all routes to the project
 app.use(buildingRoutes);
-app.use(objectRoutes);
+app.use(markerRoutes);
 app.use(userRoutes);
 
 // set port, listen for requests

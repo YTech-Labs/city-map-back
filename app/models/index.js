@@ -8,7 +8,7 @@ const db = {};
 db.mongoose = mongoose;
 db.url = dbConfig.url;
 db.buildings = require("./building.model.js");
-db.objects = require("./object.model.js");
+db.markers = require("./marker.model.js");
 db.users = require("./user.model.js");
 
 module.exports = db;

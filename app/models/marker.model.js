@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 // Creating buildings schema
-const objectsSchema = new Schema({
+const markersSchema = new Schema({
 	"geometry": {
 		type: Object,
 		required: true,
@@ -20,7 +20,7 @@ const objectsSchema = new Schema({
 	}
 }, { timestamps: true });
 
-const Object_schema = mongoose.model('Object_schema', objectsSchema);
+const Marker = mongoose.model('Marker', markersSchema);
 
 // export Object schema as a module;
-module.exports = Object_schema;
+module.exports = Marker;
